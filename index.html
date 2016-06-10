@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" href="vendor/css/highlight_gruvbox-dark.css">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <title>Markdown Demo</title>
+</head>
+
+<body>
+<h1>Markdown Demo</h1>
+
+<div class="divBlock">
+<h3>Raw markdown w/ content. Edit this!</h3>
+<!-- Pre-load text area with "marked down" content -->
+<textarea rows="20" cols="60" id="tBody" class="pCommon pRaw">
+Plain text<br>
+_italics text_
+
+<span style="color:red; padding:2px;">RRR</span>
+<span style="color:green; padding:2px; display:inline-block; border:1px green solid">GGG</span>
+<span style="color:blue; padding:2px">BBB</span>
+
+    // For automatic synatx highlighting:
+    //   1. Write a code block
+    //   2. Put an empty line above the block
+    //   3. Indent the block by four spaces.
+
+    // Example code block:
+    function render() {
+      var bodVal = tBody.val(); // Raw article markup
+      var m = marked(bodVal); // Convert markup to html
+      $(m).filter('pre').each(function(i, block) { hljs.highlightBlock(block); });
+    }
+
+# Heading 1
+## Heading 2
+### Heading 3
+
+Unordered list:
+* Protein
+* Fiber
+</textarea>
+</div>
+
+<div class="divBlock">
+  <h3>Live markdown output (read-only)</h3>
+  <p id="pMarkOut" class="pCommon"></p>
+</div>
+
+<div class="divBlock">
+  <h3>Live raw HTML output (read-only)</h3>
+  <p id="pHrawOut" class="pCommon"></p>
+</div>
+
+<div class="divBlock">
+  <h3>JSON object (article body only)</h3>
+  <p id="pJson" class="pCommon"></p>
+</div>
+
+<script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="vendor/js/highlight.min.js"></script>
+<script src="vendor/js/marked.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="js/render.js"></script>
+
+</body>
+</html>

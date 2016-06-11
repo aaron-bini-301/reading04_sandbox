@@ -13,6 +13,8 @@
 <div class="divBlock">
 <h3>Raw markdown w/ content. Edit this!</h3>
 <!-- Pre-load text area with "marked down" content -->
+<!-- Cols: The visible width of the text control, in average character widths.  -->
+<!-- Rows: The number of visible text lines for the control. -->
 <textarea rows="20" cols="60" id="tBody" class="pCommon pRaw">
 Plain text<br>
 _italics text_
@@ -61,6 +63,9 @@ Unordered list:
 <script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="vendor/js/highlight.min.js"></script>
 <script src="vendor/js/marked.min.js"></script>
+
+<!-- The script below attaches highlighting to the page load event -->
+<!-- Moving this code above marked.min.js seems to be fine, but moving it above highlight.min.js is a problem because that is the file that this function lives in. -->
 <script>hljs.initHighlightingOnLoad();</script>
 <script src="js/render.js"></script>
 

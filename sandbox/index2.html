@@ -3,26 +3,21 @@
 <head>
   <meta charset="utf-8"></meta>
   <link rel="stylesheet" href="vendor/css/highlight_gruvbox-dark.css">
-  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link rel="stylesheet" type="text/css" href="css2/styles.css">
   <title>Markdown Demo</title>
 </head>
 
 <body>
+<!-- <button id='markButton'>Click here</button> -->
 <h1>Markdown Demo</h1>
-<h2>Markdown</h2>
-<!-- commenting here -->
+
 <div class="divBlock">
 <h3>Raw markdown w/ content. Edit this!</h3>
 <!-- Pre-load text area with "marked down" content -->
 <!-- Cols: The visible width of the text control, in average character widths.  -->
 <!-- Rows: The number of visible text lines for the control. -->
-<textarea rows="20" cols="60" id="tBody" class="pCommon pRaw">
-Plain text<br>
-_italics text_
-
-<span style="color:red; padding:2px;">RRR</span>
-<span style="color:green; padding:2px; display:inline-block; border:1px green solid">GGG</span>
-<span style="color:blue; padding:2px">BBB</span>
+<textarea rows="20" cols="60" id="text-area" class="pCommon pRaw">
+<h1>This renders on page load</h1>
 
     // For automatic synatx highlighting:
     //   1. Write a code block
@@ -35,30 +30,12 @@ _italics text_
       var m = marked(bodVal); // Convert markup to html
       $(m).filter('pre').each(function(i, block) { hljs.highlightBlock(block); });
     }
-
-# Heading 1
-## Heading 2
-### Heading 3
-
-Unordered list:
-* Protein
-* Fiber
 </textarea>
 </div>
 
 <div class="divBlock">
   <h3>Live markdown output (read-only)</h3>
-  <p id="pMarkOut" class="pCommon"></p>
-</div>
-
-<div class="divBlock">
-  <h3>Live raw HTML output (read-only)</h3>
-  <p id="pHrawOut" class="pCommon"></p>
-</div>
-
-<div class="divBlock">
-  <h3>JSON object (article body only)</h3>
-  <p id="pJson" class="pCommon"></p>
+  <p id="live-markdown" class="pCommon"></p>
 </div>
 
 <script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
@@ -68,7 +45,7 @@ Unordered list:
 <!-- The script below attaches highlighting to the page load event -->
 <!-- Moving this code above marked.min.js seems to be fine, but moving it above highlight.min.js is a problem because that is the file that this function lives in. -->
 <script>hljs.initHighlightingOnLoad();</script>
-<script src="js/render.js"></script>
+<script src="js2/render_sandbox.js"></script>
 
 </body>
 </html>

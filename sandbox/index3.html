@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" href="vendor/css/highlight_gruvbox-dark.css">
+  <link rel="stylesheet" type="text/css" href="css2/styles.css">
+  <title>Markdown Demo</title>
+</head>
+
+<body>
+<button id='markButton'>Click here</button>
+<h1>Markdown Demo</h1>
+
+<div class="divBlock">
+<h3>Raw markdown w/ content. Edit this!</h3>
+<!-- Pre-load text area with "marked down" content -->
+<!-- Cols: The visible width of the text control, in average character widths.  -->
+<!-- Rows: The number of visible text lines for the control. -->
+<textarea rows="20" cols="60" id="text-area" class="pCommon pRaw">
+<h1>This renders on click</h1>
+
+    // For automatic synatx highlighting:
+    //   1. Write a code block
+    //   2. Put an empty line above the block
+    //   3. Indent the block by four spaces.
+
+    // Example code block:
+    function render() {
+      var bodVal = tBody.val(); // Raw article markup
+      var m = marked(bodVal); // Convert markup to html
+      $(m).filter('pre').each(function(i, block) { hljs.highlightBlock(block); });
+    }
+</textarea>
+</div>
+
+<div class="divBlock">
+  <h3>Live markdown output (read-only)</h3>
+  <p id="live-markdown" class="pCommon"></p>
+</div>
+
+<script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="vendor/js/highlight.min.js"></script>
+<script src="vendor/js/marked.min.js"></script>
+
+<!-- The script below attaches highlighting to the page load event -->
+<!-- Moving this code above marked.min.js seems to be fine, but moving it above highlight.min.js is a problem because that is the file that this function lives in. -->
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="js3/js3.js"></script>
+
+</body>
+</html>
